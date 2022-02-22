@@ -1,0 +1,20 @@
+package main
+
+import (
+	"fmt"
+	"os"
+
+	"{{- .Github -}}/app/cmd"
+)
+
+//go:generate ./generator.sh
+
+// @title base
+// @version 0.1.0
+// @description {something}
+func main() {
+	err := cmd.App.Run(os.Args)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, " \033[31;1m** [Err] %s\033[0m\n", err)
+	}
+}

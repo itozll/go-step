@@ -1,0 +1,37 @@
+package flag
+
+import (
+	"github.com/urfave/cli/v2"
+
+	"{{- .Github -}}/app/internal/rttype"
+)
+
+var (
+	// detail: https://github.com/urfave/cli/blob/master/docs/v2/manual.md#flags
+
+	OVerbose = &cli.BoolFlag{
+		Name:        "verbose",
+		Usage:       "add more details to output logging.",
+		Value:       rttype.Verbose,
+		DefaultText: boolToString(rttype.Verbose),
+		Destination: &rttype.Verbose,
+	}
+
+	ODebug = &cli.BoolFlag{
+		Name:        "debug",
+		Usage:       "start debug mode.",
+		Value:       rttype.Debug,
+		DefaultText: boolToString(rttype.Debug),
+		Destination: &rttype.Debug,
+	}
+
+	// Note: Add your code for new flags
+)
+
+func boolToString(o bool) string {
+	if o {
+		return "true"
+	}
+
+	return "false"
+}

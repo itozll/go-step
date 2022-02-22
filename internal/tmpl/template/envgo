@@ -1,0 +1,19 @@
+// runtime type(s)
+
+package rttype
+
+import (
+	"os"
+	"path/filepath"
+)
+
+var (
+	Debug   bool
+	Verbose bool
+
+	version = "0.1.0"
+	appName = filepath.Base(os.Args[0])
+)
+
+func AppName() string { return appName }
+func Version() string { return version }

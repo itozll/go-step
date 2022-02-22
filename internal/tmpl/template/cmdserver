@@ -1,0 +1,53 @@
+package cmd
+
+import (
+	"fmt"
+
+	"github.com/urfave/cli/v2"
+
+	"{{- .Github -}}/app/internal/rttype"
+)
+
+func init() {
+	App.Commands = append(App.Commands, &cli.Command{
+		Name: "server",
+
+		// short usage
+		// Usage: "<Usage>",
+
+		// usage
+		// UsageText: fmt.Sprintf(`%s [global options] server [options]`, rttype.AppName()),
+
+		// description
+		// Description: `Hello World`,
+
+		// options
+		// Flags: []cli.Flag{},
+
+		// Before: func(c *cli.Context) error {
+		// 	/*
+		// 		Add your code
+		// 		execute before {Action}
+		// 	*/
+		// 	return nil
+		// },
+
+		// After: func(c *cli.Context) error {
+		// 	/*
+		// 		Add your code
+		// 		execute after {Action}
+		// 	*/
+		// 	return nil
+		// },
+
+		// do something
+		Action: func(c *cli.Context) error {
+			// Add your codes
+
+			// run: go run main.go [--debug] server
+			fmt.Println("debug =", rttype.Debug)
+
+			return nil
+		},
+	})
+}

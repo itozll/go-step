@@ -1,0 +1,19 @@
+package cmd
+
+import (
+	"github.com/urfave/cli/v2"
+
+	"{{- .Github -}}/app/cmd/flag"
+	"{{- .Github -}}/app/internal/rttype"
+)
+
+var App = &cli.App{
+	Name:                 rttype.AppName(),
+	Version:              rttype.Version(),
+	EnableBashCompletion: true,
+
+	// global options
+	Flags: []cli.Flag{
+		flag.ODebug,
+	},
+}
